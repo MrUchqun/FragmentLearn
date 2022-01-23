@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     Context context;
     Button button;
+    Button buttonContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,19 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         context = this;
         button = findViewById(R.id.btn_fragment);
+        buttonContact = findViewById(R.id.btn_contact);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context, FragmentActivity.class));
+            }
+        });
+
+        buttonContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, ContactListActivity.class));
             }
         });
     }

@@ -3,11 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/drawable/bottom_different_line.xml" value="0.2875" />
         <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/drawable/button_border.xml" value="0.2875" />
+        <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2875" />
+        <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/drawable/left_different_line.xml" value="0.2875" />
+        <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/drawable/right_different_line.xml" value="0.2875" />
+        <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/activity_contact_list.xml" value="0.2713541666666667" />
         <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/activity_fragment.xml" value="0.2713541666666667" />
         <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/activity_main.xml" value="0.2713541666666667" />
+        <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/fragmant_first_contact.xml" value="0.2713541666666667" />
+        <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/fragmant_second_contact.xml" value="0.2713541666666667" />
         <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/fragment_first.xml" value="0.2713541666666667" />
         <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/fragment_second.xml" value="0.2713541666666667" />
+        <entry key="..\:/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/item_contact.xml" value="0.2713541666666667" />
       </map>
     </option>
   </component>
