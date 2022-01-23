@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.fragmentlearn.R;
+import com.example.fragmentlearn.adapter.ContactAdapter;
 import com.example.fragmentlearn.fragment.FirstFragmentContact;
 import com.example.fragmentlearn.fragment.SecondFragmentContact;
+import com.example.fragmentlearn.model.Contact;
 
-public class ContactListActivity extends AppCompatActivity {
+public class ContactListActivity extends AppCompatActivity implements FirstFragmentContact.SendContact {
 
     FirstFragmentContact firstFragmentContact;
     SecondFragmentContact secondFragmentContact;
@@ -29,4 +31,10 @@ public class ContactListActivity extends AppCompatActivity {
                 .replace(R.id.frame_second_contact, secondFragmentContact)
                 .commit();
     }
+
+    @Override
+    public void sendContact(Contact contact) {
+        secondFragmentContact.updateData(contact, true);
+    }
+
 }

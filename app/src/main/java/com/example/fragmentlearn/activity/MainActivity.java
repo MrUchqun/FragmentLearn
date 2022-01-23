@@ -1,5 +1,7 @@
 package com.example.fragmentlearn.activity;
 
+import static java.security.AccessController.getContext;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         context = this;
+        checkPermission();
+
         button = findViewById(R.id.btn_fragment);
         buttonContact = findViewById(R.id.btn_contact);
 
@@ -49,5 +53,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(context, ContactListActivity.class));
             }
         });
+    }
+
+    private void checkPermission() {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+            //when permission is not Granted
+            //Request permission
+            ActivityCompat.requestPermissions
+                    ((Activity) context, new String[]{Manifest.permission.READ_CONTACTS}, 100);
+        } else {
+
+            //when permission is granted
+            //Create Method
+
+        }
     }
 }

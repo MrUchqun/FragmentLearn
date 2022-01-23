@@ -13,6 +13,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fragmentlearn.R;
+import com.example.fragmentlearn.fragment.FirstFragmentContact;
+import com.example.fragmentlearn.fragment.SecondFragmentContact;
+import com.example.fragmentlearn.helper.ClickedContact;
 import com.example.fragmentlearn.model.Contact;
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -23,11 +26,12 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     Context context;
     List<Contact> contacts;
+    private final ClickedContact clickedContact;
 
-
-    public ContactAdapter(Context context, List<Contact> contacts) {
+    public ContactAdapter(Context context, List<Contact> contacts, ClickedContact clickedContact) {
         this.context = context;
         this.contacts = contacts;
+        this.clickedContact = clickedContact;
     }
 
     @NonNull
@@ -46,7 +50,7 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((ContactViewHolder) holder).layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    clickedContact.clickedContact(contact);
                 }
             });
 
@@ -71,4 +75,5 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             layout = view.findViewById(R.id.view_contact_click);
         }
     }
+
 }

@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fragmentlearn.R;
 import com.example.fragmentlearn.adapter.ContactAdapter;
+import com.example.fragmentlearn.helper.ClickedContact;
 import com.example.fragmentlearn.model.Contact;
 
 import java.lang.reflect.Array;
@@ -38,6 +39,7 @@ import android.provider.ContactsContract;
 
 public class FirstFragmentContact extends Fragment {
 
+    private SendContact sendContact;
     FirstFragmentContact context;
     RecyclerView recyclerView;
     List<Contact> contacts;
@@ -47,7 +49,6 @@ public class FirstFragmentContact extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmant_first_contact, container, false);
         initView(view);
-        checkPermission();
         refreshAdapter();
         getAllContacts();
         return view;
@@ -58,21 +59,6 @@ public class FirstFragmentContact extends Fragment {
         contacts = new ArrayList<>();
         recyclerView = view.findViewById(R.id.view_recycler_contact);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-    }
-
-    private void checkPermission() {
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
-                != PackageManager.PERMISSION_GRANTED) {
-            //when permission is not Granted
-            //Request permission
-            ActivityCompat.requestPermissions
-                    ((Activity) getContext(), new String[]{Manifest.permission.READ_CONTACTS}, 100);
-        } else {
-
-            //when permission is granted
-            //Create Method
-
-        }
     }
 
     private void getAllContacts() {
@@ -115,8 +101,33 @@ public class FirstFragmentContact extends Fragment {
     }
 
     private void refreshAdapter() {
-        ContactAdapter adapter = new ContactAdapter(getContext(), contacts);
+        ContactAdapter adapter = new ContactAdapter(getContext(), contacts, new ClickedContact() {
+            @Override
+            public void clickedContact(Contact contact) {
+                sendContact.sendContact(contact);
+            }
+        });
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof SendContact){
+            sendContact = (SendContact) context;
+        } else {
+            throw new RuntimeException(context.toString());
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        sendContact = null;
+    }
+
+    public interface SendContact {
+        void sendContact(Contact contact);
     }
 }
 

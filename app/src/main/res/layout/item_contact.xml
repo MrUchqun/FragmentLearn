@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
     android:background="@drawable/left_bottom_different_line"
+    android:clickable="true"
+    android:focusable="true"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="5dp">
