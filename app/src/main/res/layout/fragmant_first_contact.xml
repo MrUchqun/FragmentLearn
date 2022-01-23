@@ -8,7 +8,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="2dp"
+        android:background="@drawable/bottom_different_line"
         android:gravity="center"
         android:text="Contacts"
         android:textColor="@color/black"

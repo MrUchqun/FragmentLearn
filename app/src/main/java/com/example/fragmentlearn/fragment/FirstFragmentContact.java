@@ -47,6 +47,7 @@ public class FirstFragmentContact extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmant_first_contact, container, false);
         initView(view);
+        checkPermission();
         refreshAdapter();
         getAllContacts();
         return view;
@@ -58,37 +59,6 @@ public class FirstFragmentContact extends Fragment {
         recyclerView = view.findViewById(R.id.view_recycler_contact);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
     }
-
-//    @SuppressLint("Recycle")
-//    private void getContacts(){
-//        ContentResolver cr = getContext().getContentResolver();
-//        Cursor cur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-//                null,null,null,null);
-//
-//        if ((cur != null ? cur.getCount() : 0) > 0) {
-//            while (cur.moveToNext()) {
-//
-//                String fullName = cur.getString(cur.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME));
-//                if (fullName == null) fullName = "Unknown";
-//                String phoneNumber = cur.getString(cur.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
-//                if (phoneNumber == null) phoneNumber = "Unknown";
-//                String image = cur.getString(cur.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.PHOTO_URI));
-//                if (image == null) image = "Invalid Image";
-//
-//                contacts.add(new Contact(fullName,image,phoneNumber));
-//            }
-//        }
-//
-//        if (cur != null) cur.close();
-//    }
-//
-//    private void checkPermission() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-//                getContext().checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED){
-//
-//            requestPermissions(new String[]{ Manifest.permission.READ_CONTACTS }, 909);
-//        }
-//    }
 
     private void checkPermission() {
         if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS)
