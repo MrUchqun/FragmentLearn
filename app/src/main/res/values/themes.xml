@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.FragmentLearn" parent="Theme.Design.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">#E79B08</item>
         <item name="colorPrimaryVariant">#E79B08</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

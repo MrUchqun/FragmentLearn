@@ -1,7 +1,5 @@
 package com.example.fragmentlearn.activity;
 
-import static java.security.AccessController.getContext;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -16,15 +14,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.fragmentlearn.R;
-import com.example.fragmentlearn.fragment.FirstFragmentContact;
-
-import java.security.Permission;
 
 public class MainActivity extends AppCompatActivity {
 
     Context context;
-    Button button;
+    Button buttonFragment;
     Button buttonContact;
+    Button buttonViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
         context = this;
         checkPermission();
 
-        button = findViewById(R.id.btn_fragment);
+        buttonFragment = findViewById(R.id.btn_fragment);
         buttonContact = findViewById(R.id.btn_contact);
+        buttonViewPager = findViewById(R.id.btn_view_pager);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context, FragmentActivity.class));
@@ -51,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context, ContactListActivity.class));
+            }
+        });
+
+        buttonViewPager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, ViewPagerActivity.class));
             }
         });
     }
