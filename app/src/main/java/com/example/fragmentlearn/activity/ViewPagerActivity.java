@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.example.fragmentlearn.R;
 import com.example.fragmentlearn.adapter.ViewPagerAdapter;
 import com.example.fragmentlearn.fragment.ViewPagerContactFragment;
+import com.example.fragmentlearn.fragment.ViewPagerUserFragment;
 import com.google.android.material.tabs.TabLayout;
 
 public class ViewPagerActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.add(new ViewPagerContactFragment(), "Contacts");
-//        viewPagerAdapter.add(new SecondFragmentContact(), "Page 2");
+        viewPagerAdapter.add(new ViewPagerUserFragment(), "Users");
 
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(viewPagerAdapter);
