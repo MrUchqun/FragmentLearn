@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonFragment;
     Button buttonContact;
     Button buttonViewPager;
+    Button buttonBottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         buttonFragment = findViewById(R.id.btn_fragment);
         buttonContact = findViewById(R.id.btn_contact);
         buttonViewPager = findViewById(R.id.btn_view_pager);
+        buttonBottomNav = findViewById(R.id.btn_bottom_nav);
 
         buttonFragment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context, ViewPagerActivity.class));
+            }
+        });
+
+        buttonBottomNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, BottomNavigationActivity.class));
             }
         });
     }

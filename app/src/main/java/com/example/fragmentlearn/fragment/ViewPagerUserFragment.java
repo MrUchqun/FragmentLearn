@@ -29,6 +29,16 @@ public class ViewPagerUserFragment extends Fragment {
 
     RecyclerView recyclerView;
 
+    public static ViewPagerUserFragment newInstance(ArrayList<User> users) {
+        ViewPagerUserFragment fragment = new ViewPagerUserFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList("USERS", users);
+
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -44,16 +54,17 @@ public class ViewPagerUserFragment extends Fragment {
     }
 
     private void refreshAdapter() {
-        UserAdapter adapter = new UserAdapter(getContext(),getUsers());
+
+        ArrayList<User> users = new ArrayList<>();
+
+        if (getArguments() != null){
+            users = getArguments().getParcelableArrayList("USERS");
+        }
+
+        UserAdapter adapter = new UserAdapter(getContext(),users);
         recyclerView.setAdapter(adapter);
     }
 
-    private ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<>();
-        for (int i = 1; i < 31; i++) {
-            users.add(new User("User Number " + i, "Mobile Developer"));
-        }
-        return users;
-    }
+
 }
 

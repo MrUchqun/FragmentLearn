@@ -29,6 +29,7 @@
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/drawable-v24/ic_baseline_send_24.xml" value="0.2875" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/drawable/button_border.xml" value="0.2875" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2875" />
+        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/activity_contact_list.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/activity_custom_multiple.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/activity_main.xml" value="0.2713541666666667" />
@@ -39,6 +40,7 @@
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/item_image_post.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/item_user.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/layout/item_video_post.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/Uchqun Azimboyev/AndroidStudioProjects/FragmentLearn/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2713541666666667" />
       </map>
     </option>
   </component>

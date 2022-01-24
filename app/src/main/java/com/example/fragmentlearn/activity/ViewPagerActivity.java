@@ -10,7 +10,10 @@ import com.example.fragmentlearn.adapter.ViewPagerAdapter;
 import com.example.fragmentlearn.fragment.ViewPagerContactFragment;
 import com.example.fragmentlearn.fragment.ViewPagerPostFragment;
 import com.example.fragmentlearn.fragment.ViewPagerUserFragment;
+import com.example.fragmentlearn.model.User;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
 
 public class ViewPagerActivity extends AppCompatActivity {
 
@@ -25,7 +28,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.add(new ViewPagerContactFragment(), "Contacts");
-        viewPagerAdapter.add(new ViewPagerUserFragment(), "Users");
+        viewPagerAdapter.add(ViewPagerUserFragment.newInstance(getUsers()), "Users");
         viewPagerAdapter.add(new ViewPagerPostFragment(), "Posts");
 
         ViewPager viewPager = findViewById(R.id.view_pager);
@@ -33,5 +36,13 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    private ArrayList<User> getUsers() {
+        ArrayList<User> users = new ArrayList<>();
+        for (int i = 1; i < 31; i++) {
+            users.add(new User("User Number " + i, "Mobile Developer"));
+        }
+        return users;
     }
 }
