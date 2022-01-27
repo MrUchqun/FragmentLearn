@@ -15,7 +15,7 @@ import com.example.fragmentlearn.fragment.FirstFragment;
 import com.example.fragmentlearn.fragment.SecondFragment;
 import com.example.fragmentlearn.model.User;
 
-public class FragmentActivity extends AppCompatActivity implements FirstFragment.SendDataFirst, SecondFragment.SendDataSecond {
+public class FragmentActivity extends AppCompatActivity /* implements FirstFragment.SendDataFirst, SecondFragment.SendDataSecond */ {
 
     FirstFragment firstFragment;
     SecondFragment secondFragment;
@@ -37,13 +37,14 @@ public class FragmentActivity extends AppCompatActivity implements FirstFragment
                 .commit();
     }
 
-    @Override
-    public void sendDataFirst(User user) {
-        secondFragment.updateSecondText(user);
-    }
+//    @Override
+//    public void sendDataFirst(User user) {
+//        secondFragment.updateSecondText(user);
+//    }
+//
+//    @Override
+//    public void sendDataSecond(User user) {
+//        firstFragment.updateFirstText(user);
+//    }
 
-    @Override
-    public void sendDataSecond(User user) {
-        firstFragment.updateFirstText(user);
-    }
 }

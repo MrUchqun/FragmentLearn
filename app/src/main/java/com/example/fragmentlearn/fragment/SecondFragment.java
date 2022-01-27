@@ -15,10 +15,15 @@ import androidx.fragment.app.Fragment;
 
 import com.example.fragmentlearn.R;
 import com.example.fragmentlearn.model.User;
+import com.example.fragmentlearn.model.UserCopy;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class SecondFragment extends Fragment {
 
-    private SendDataSecond sendListener;
+//    private SendDataSecond sendListener;
 
     TextView textViewName;
     TextView textViewAge;
@@ -35,6 +40,7 @@ public class SecondFragment extends Fragment {
     }
 
     private void initViews(View view) {
+
         textViewName = view.findViewById(R.id.tv_name_fragment_second);
         textViewAge = view.findViewById(R.id.tv_age_fragment_second);
         editTextName = view.findViewById(R.id.et_name_fragment_second);
@@ -46,34 +52,51 @@ public class SecondFragment extends Fragment {
             public void onClick(View view) {
                 String name = String.valueOf(editTextName.getText());
                 String work = String.valueOf(editTextAge.getText());
-                sendListener.sendDataSecond(new User(name, work));
+                EventBus.getDefault().post(new UserCopy(name, work));
+//                sendListener.sendDataSecond(new User(name, work));
             }
         });
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof SendDataSecond){
-            sendListener = (SendDataSecond) context;
-        } else {
-            throw new RuntimeException(context.toString());
-        }
-    }
+//    @Override
+//    public void onAttach(@NonNull Context context) {
+//        super.onAttach(context);
+//        if (context instanceof SendDataSecond){
+//            sendListener = (SendDataSecond) context;
+//        } else {
+//            throw new RuntimeException(context.toString());
+//        }
+//    }
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        sendListener = null;
+//    }
+//
+//    public void updateSecondText(User user){
+//        textViewName.setText(user.getName());
+//        textViewAge.setText(user.getWork());
+//    }
+//
+//    public interface SendDataSecond {
+//        void sendDataSecond(User user);
+//    }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        sendListener = null;
-    }
-
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void updateSecondText(User user){
         textViewName.setText(user.getName());
         textViewAge.setText(user.getWork());
     }
 
-    public interface SendDataSecond {
-        void sendDataSecond(User user);
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
     }
 
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
 }
